@@ -8,14 +8,11 @@ app = Flask(__name__)
 def hello():
     return 'pong'
 
-@app.route("/poll")
-def poll():
+@app.route("/text_stream")
+def text_stream():
     def generate():
-        yield '<ul>'
-        i = 0
-        while True:
-            i += 1
-            yield f'<li>{str(i)}</li>'
+        for n in range(61):
+            yield f'{str(n)} sec<br>'
             time.sleep(1)
 
     return Response(generate())
