@@ -5,7 +5,7 @@ from app import app
 def client():
     return app.test_client()
 
-def test_hello(client):
-    response = client.get('/')
+def test_ping(client):
+    response = client.get('/ping')
     assert response.status_code == 200
-    assert response.data.decode('utf-8') == 'Hello, World!'
+    assert response.data.decode('utf-8') == 'pong'

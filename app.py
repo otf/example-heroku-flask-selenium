@@ -4,9 +4,9 @@ import time
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/ping')
 def hello():
-    return "Hello, World!"
+    return 'pong'
 
 @app.route("/poll")
 def poll():
