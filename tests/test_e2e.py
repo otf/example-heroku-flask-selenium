@@ -14,3 +14,7 @@ def api_request_context(
 def test_should_returns_pong_if_ping(api_request_context: APIRequestContext) -> None:
     responce = api_request_context.get('/ping')
     assert responce.text() == 'pong'
+
+def test_text_stream(api_request_context: APIRequestContext) -> None:
+    responce = api_request_context.get('/text_stream')
+    assert '60 sec' in responce.text()
