@@ -9,19 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 app = Flask(__name__)
 
-@app.route('/ping')
-def hello():
-    return 'pong'
-
-@app.route("/text_stream")
-def text_stream():
-    def generate():
-        for n in range(61):
-            yield f'{str(n)} sec<br>'
-            sleep(1)
-
-    return Response(generate())
-
 @app.route('/pages/<int:page_number>')
 def page(page_number):
     sleep(1)
