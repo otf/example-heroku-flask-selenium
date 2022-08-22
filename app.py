@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from flask import Flask, Response, request
 import os
 from time import sleep
