@@ -33,7 +33,7 @@ def index():
                         EC.presence_of_element_located((by, value))
                     ))
 
-            for n in range(60):
+            for n in range(60 * 3):
                 yield f'{elm(By.ID, "txt").text},{datetime.now().isoformat()}\n'
                 elm(By.ID, 'btn-next').click()
 
