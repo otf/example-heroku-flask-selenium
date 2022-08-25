@@ -15,7 +15,11 @@ app = Flask(__name__)
 
 @app.route('/pages/<int:page_number>')
 def page(page_number):
-    sleep(1)
+    if page_number == 1:
+        sleep(60)
+    else:
+        sleep(1)
+
     return f'''
         <p id='txt'>{page_number} page</p>
         <a id='btn-next' href='/pages/{page_number + 1}'>next page</a>
