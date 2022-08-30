@@ -1,5 +1,7 @@
 { lib
 , python3Packages
+, google-chrome
+, chromedriver
 }:
 
 with python3Packages;
@@ -10,8 +12,15 @@ buildPythonApplication {
   src = ./.;
   doCheck = false;
 
+  postBuild = ''
+    mkdir -p $out/bin
+    ln -s ${google-chrome}/bin/google-chrome-stable $out/bin/google-chrome
+  '';
+
   propagatedBuildInputs = [
     flask
+    google-chrome
+    chromedriver
     selenium
   ];
 }

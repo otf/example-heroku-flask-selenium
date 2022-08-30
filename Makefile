@@ -13,16 +13,16 @@ test-production:
 
 .PHONY: nix-build
 nix-build:
-	nix build
+	nix build --impure
 
 .PHONY: nix-server
 nix-server: nix-build
-	nix develop --command make server
+	nix develop --impure --command make server 
 
 .PHONY: nix-test-develop
 nix-test-develop: nix-build
-	nix develop --command make test-develop
+	nix develop --impure --command make test-develop
 
 .PHONY: nix-test-production
 nix-test-production: nix-build
-	nix develop --command make test-production
+	nix develop --impure --command make test-production
